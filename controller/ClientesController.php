@@ -38,7 +38,8 @@ class ClientesController extends Controller
     {
         $id      = (int) $dados['id'];
         $cliente = Cliente::find($id);
-        return $this->view('RelformCliente', ['cliente' => $cliente]);
+        $vendas = cliente::relatorio($id);
+        return $this->view('RelformCliente', ['cliente' => $cliente, 'vendas' => $vendas]);
     }
     /**
      * Salvar o cliente submetido pelo formulário
