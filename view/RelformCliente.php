@@ -8,7 +8,7 @@
     <form action="?controller=ClientesController&<?php echo isset($cliente->id) ? "method=atualizar&id={$cliente->id}" : "method=salvar"; ?>" method="post" >
         <div class="card" style="top:40px">
             <div class="card-header">
-                <span class="card-title">CLientes</span>
+                <span class="card-title">Cliente</span>
             </div>
             <div class="card-body">
             </div>
@@ -78,10 +78,47 @@
                 echo isset($cliente->CELULAR) ? $cliente->CELULAR : null;
                 ?>" />
             </div>
+            <div>
+              <table class="highlight" style="top:40px;" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Código da Venda</th>
+                            <th>Data da Venda</th>
+                            <th>Valor Total</th>
+                        </tr>
+                    </thead>
+                    <h4>Compras do Cliente</h4>
+                      <tbody>
+                          <?php
+                          if ($vendas) {
+                              foreach ($vendas as $venda) {
+                                  ?>
+                                  <tr>
+                                      <td><?php echo $venda->ID; ?></td>
+                                      <td><?php echo $venda->DATA_VENDA_CAB; ?></td>
+                                      <td><?php echo $venda->VALOR_VENDA_CAB; ?></td>
+                                      <td>
+                                          <a href="?controller=VendasController&method=relatorio&id=<?php echo $venda->ID; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                                      </td>
+                                  </tr>
+                                  <?php
+                              }
+                          } else {
+                              ?>
+                              <tr>
+                                  <td colspan="5">Nenhum registro encontrado</td>
+                              </tr>
+                              <?php
+                          }
+                          ?>
+                      </tbody>
+                  </table>
+            </div>
             <div class="card-footer">
                 <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
                 <a class="btn btn-danger" href="?controller=ClientesController&method=RelCliente">Voltar</a>
             </div>
         </div>
+
     </form>
 </div>
