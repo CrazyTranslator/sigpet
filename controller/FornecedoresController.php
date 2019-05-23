@@ -34,6 +34,12 @@ class FornecedoresController extends Controller
         $fornecedor = Fornecedor::find($id);
         return $this->view('formFornecedor', ['fornecedor' => $fornecedor]);
     }
+    public function relatorio($dados)
+    {
+        $id      = (int) $dados['id'];
+        $fornecedor = Fornecedor::find($id);
+        return $this->view('RelformFornecedor', ['fornecedor' => $fornecedor]);
+    }
     /**
      * Salvar o cliente submetido pelo formulário
      */
@@ -78,7 +84,7 @@ class FornecedoresController extends Controller
         $fornecedor->EMAIL_FORNECEDOR    = $this->request->EMAIL_FORNECEDOR;
         $fornecedor->TELEFONE_FORNECEDOR    = $this->request->TELEFONE_FORNECEDOR;
         $fornecedor->CELULAR_FORNECEDOR    = $this->request->CELULAR_FORNECEDOR;
-      
+
         if ($fornecedor->save()) {
             return $this->listar();
         }
