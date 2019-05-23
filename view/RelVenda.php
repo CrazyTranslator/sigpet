@@ -45,7 +45,7 @@
                         <td><?php echo $venda->NOME_CLIENTE; ?></td>
                         <td><?php echo $venda->VALOR_VENDA_CAB; ?></td>
                         <td>
-                            <a href="#!" class="btn btn-primary btn-sm">Visualizar</a>
+                            <a href="?controller=VendasController&method=relatorio&id=<?php echo $venda->ID; ?>" class="btn btn-primary btn-sm">Visualizar</a>
                         </td>
                     </tr>
                     <?php
