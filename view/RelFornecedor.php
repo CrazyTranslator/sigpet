@@ -61,6 +61,9 @@
                         <td><?php echo $fornecedor->EMAIL_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->TELEFONE_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->CELULAR_FORNECEDOR; ?></td>
+                        <td>
+                          <a href="?controller=FornecedoresController&method=relatorio&id=<?php echo $fornecedor->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                        </td>
                     </tr>
                     <?php
                 }
