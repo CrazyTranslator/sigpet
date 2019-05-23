@@ -57,6 +57,9 @@
                         <td><?php echo $cliente->CNPJ_CLIENTE; ?></td>
                         <td><?php echo $cliente->REFERENCIA_CLIENTE; ?></td>
                         <td><?php echo $cliente->CELULAR; ?></td>
+                        <td>
+                          <a href="?controller=ClientesController&method=relatorio&id=<?php echo $cliente->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                        </td>
                     </tr>
                     <?php
                 }
